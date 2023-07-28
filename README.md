@@ -1,2 +1,2 @@
-# Projects
-This is Repository of my projects 
+# XGBoost mini project
+This is my mini XGBoost project made mostly for job interviews
