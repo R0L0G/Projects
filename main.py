@@ -17,19 +17,22 @@ for i in range(0, 23):
 DataValues = np.transpose(Tdataset)
 dataset = pd.DataFrame(data=DataValues, columns=names1)
 dataset = dataset.astype("int")
-X = dataset.iloc[:, :1].values
-y = dataset.iloc[:, 1:].values
+y = dataset.iloc[:, :1].values
+X = dataset.iloc[:, 1:].values
 X = np.asarray(X)
 y = np.asarray(y)
 print(X)
 print(y)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, test_size=0.33)
 model = XGBClassifier()
-model.fit(y_train, X_train)
-X_pred = model.predict(y_test)
-acc = accuracy_score(X_test, X_pred)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+acc = accuracy_score(y_pred, y_test)
 print("Accuracy: %.2f%%" % (acc * 100.0))
-print(confusion_matrix(X_test, X_pred))
+print(confusion_matrix(y_test, y_pred))
+
+
+
 
 
 
